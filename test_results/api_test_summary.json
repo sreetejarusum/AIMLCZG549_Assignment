@@ -1,0 +1,976 @@
+{
+  "test_suite": "AIMLCZG549 Sub-Objective 3.3 Verification Suite",
+  "timestamp": "2026-09-28T14:10:56.801750+00:00",
+  "total_tests": 12,
+  "passed": 12,
+  "failed": 0,
+  "http_status_codes_verified": [
+    200,
+    202,
+    404,
+    422
+  ],
+  "test_cases": [
+    {
+      "test_id": "TEST-01",
+      "name": "System Health Check",
+      "method": "GET",
+      "endpoint": "/health",
+      "expected_status": 200,
+      "actual_status": 200,
+      "latency_ms": 1.09,
+      "result": "PASSED",
+      "response_sample": {
+        "status": "healthy",
+        "service": "AIMLCZG549 Cloud-Native DataOps API",
+        "version": "1.0.0",
+        "timestamp": "2026-09-28T14:10:54.700175+00:00",
+        "database_connected": true,
+        "metrics_file_available": true
+      }
+    },
+    {
+      "test_id": "TEST-02",
+      "name": "Retrieve Key Application Details (4 Details)",
+      "method": "GET",
+      "endpoint": "/api/v1/application/details",
+      "expected_status": 200,
+      "actual_status": 200,
+      "latency_ms": 28.54,
+      "result": "PASSED",
+      "response_sample": {
+        "status_code": 200,
+        "retrieved_at": "2026-09-28T14:10:54.728770+00:00",
+        "application_overview": {
+          "course": "AIMLCZG549 - API-driven Cloud Native Solutions",
+          "assignment": "Assignment I: Data Pipeline & API Access",
+          "architecture": "Prefect Orchestration + Cloud-Native FastAPI Gateway"
+        },
+        "key_application_details": {
+          "detail_1_flow_metadata": {
+            "flow_id": "d9d51436-8f9c-4c94-87d9-49da8b02cb17",
+            "flow_name": "telco-customer-churn-dataops-pipeline",
+            "created_at": "2026-09-28 13:55:55.862339+00:00",
+            "updated_at": "2026-09-28 13:55:55.862342+00:00",
+            "tags": []
+          },
+          "detail_2_deployment_config": {
+            "deployment_id": "bc34f67b-4486-44ac-af96-87a4dd5dedda",
+            "deployment_name": "churn-dataops-2min-deployment",
+            "flow_id": "d9d51436-8f9c-4c94-87d9-49da8b02cb17",
+            "status": "READY",
+            "tags": [
+              "aimlczg549",
+              "assignment1",
+              "dataops"
+            ],
+            "schedules": [
+              {
+                "schedule_type": "Interval",
+                "interval_seconds": 120,
+                "cadence": "Every 2 minutes",
+                "active": true,
+                "raw": "interval=datetime.timedelta(seconds=120) anchor_date=datetime.datetime(2026, 9, 28, 13, 57, 30, 320189, tzinfo=TzInfo(0)) timezone='UTC'"
+              }
+            ],
+            "created_at": "2026-09-28 13:57:33.572088+00:00",
+            "updated_at": "2026-09-28 13:57:33.570798+00:00"
+          },
+          "detail_3_flow_run_telemetry": {
+            "latest_run": {
+              "run_id": "dec0a837-5f79-47da-ae08-e4f928753f9e",
+              "run_name": "antique-raptor",
+              "flow_id": "d9d51436-8f9c-4c94-87d9-49da8b02cb17",
+              "state_name": "Failed",
+              "state_type": "StateType.FAILED",
+              "start_time": "2026-09-28 13:55:55.878224+00:00",
+              "end_time": "2026-09-28 13:55:57.926595+00:00",
+              "total_run_time_seconds": 2.048371
+            },
+            "total_recent_runs_queried": 5,
+            "recent_history": [
+              {
+                "run_id": "dec0a837-5f79-47da-ae08-e4f928753f9e",
+                "run_name": "antique-raptor",
+                "flow_id": "d9d51436-8f9c-4c94-87d9-49da8b02cb17",
+                "state_name": "Failed",
+                "state_type": "StateType.FAILED",
+                "start_time": "2026-09-28 13:55:55.878224+00:00",
+                "end_time": "2026-09-28 13:55:57.926595+00:00",
+                "total_run_time_seconds": 2.048371
+              },
+              {
+                "run_id": "c3d76da9-f40f-4aaf-9d24-1653e7485058",
+                "run_name": "bright-lion",
+                "flow_id": "d9d51436-8f9c-4c94-87d9-49da8b02cb17",
+                "state_name": "Completed",
+                "state_type": "StateType.COMPLETED",
+                "start_time": "2026-09-28 14:01:28.431060+00:00",
+                "end_time": "2026-09-28 14:01:30.278343+00:00",
+                "total_run_time_seconds": 1.847283
+              },
+              {
+                "run_id": "c2115b52-fb19-44ab-904e-fd4fd046cd70",
+                "run_name": "pretty-jackal",
+                "flow_id": "d9d51436-8f9c-4c94-87d9-49da8b02cb17",
+                "state_name": "Completed",
+                "state_type": "StateType.COMPLETED",
+                "start_time": "2026-09-28 13:56:34.694967+00:00",
+                "end_time": "2026-09-28 13:56:36.638704+00:00",
+                "total_run_time_seconds": 1.943737
+              }
+            ]
+          },
+          "detail_4_pipeline_and_model_metrics": {
+            "dataset_source": "IBM/Kaggle Telco Customer Churn",
+            "total_records_processed": 7043,
+            "missing_values_imputed": 11,
+            "normalization_method": "MinMaxScaler [0, 1]",
+            "baseline_model": "RandomForestClassifier",
+            "test_roc_auc": 0.8245,
+            "top_predictive_feature": "tenure"
+          }
+        }
+      }
+    },
+    {
+      "test_id": "TEST-03",
+      "name": "Prefect Built-in Flow Information",
+      "method": "GET",
+      "endpoint": "/api/v1/prefect/flows",
+      "expected_status": 200,
+      "actual_status": 200,
+      "latency_ms": 6.85,
+      "result": "PASSED",
+      "response_sample": {
+        "total_flows": 1,
+        "flows": [
+          {
+            "flow_id": "d9d51436-8f9c-4c94-87d9-49da8b02cb17",
+            "flow_name": "telco-customer-churn-dataops-pipeline",
+            "created_at": "2026-09-28 13:55:55.862339+00:00",
+            "updated_at": "2026-09-28 13:55:55.862342+00:00",
+            "tags": []
+          }
+        ]
+      }
+    },
+    {
+      "test_id": "TEST-04",
+      "name": "Prefect Built-in Deployment & 2-Min Schedule",
+      "method": "GET",
+      "endpoint": "/api/v1/prefect/deployments",
+      "expected_status": 200,
+      "actual_status": 200,
+      "latency_ms": 13.67,
+      "result": "PASSED",
+      "response_sample": {
+        "total_deployments": 1,
+        "deployments": [
+          {
+            "deployment_id": "bc34f67b-4486-44ac-af96-87a4dd5dedda",
+            "deployment_name": "churn-dataops-2min-deployment",
+            "flow_id": "d9d51436-8f9c-4c94-87d9-49da8b02cb17",
+            "status": "READY",
+            "tags": [
+              "aimlczg549",
+              "assignment1",
+              "dataops"
+            ],
+            "schedules": [
+              {
+                "schedule_type": "Interval",
+                "interval_seconds": 120,
+                "cadence": "Every 2 minutes",
+                "active": true,
+                "raw": "interval=datetime.timedelta(seconds=120) anchor_date=datetime.datetime(2026, 9, 28, 13, 57, 30, 320189, tzinfo=TzInfo(0)) timezone='UTC'"
+              }
+            ],
+            "created_at": "2026-09-28 13:57:33.572088+00:00",
+            "updated_at": "2026-09-28 13:57:33.570798+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "test_id": "TEST-05",
+      "name": "Prefect Built-in Flow Run Telemetry",
+      "method": "GET",
+      "endpoint": "/api/v1/prefect/flow-runs",
+      "expected_status": 200,
+      "actual_status": 200,
+      "latency_ms": 8.55,
+      "result": "PASSED",
+      "response_sample": {
+        "limit": 10,
+        "total_returned": 6,
+        "flow_runs": [
+          {
+            "run_id": "dec0a837-5f79-47da-ae08-e4f928753f9e",
+            "run_name": "antique-raptor",
+            "flow_id": "d9d51436-8f9c-4c94-87d9-49da8b02cb17",
+            "state_name": "Failed",
+            "state_type": "StateType.FAILED",
+            "start_time": "2026-09-28 13:55:55.878224+00:00",
+            "end_time": "2026-09-28 13:55:57.926595+00:00",
+            "total_run_time_seconds": 2.048371
+          },
+          {
+            "run_id": "c3d76da9-f40f-4aaf-9d24-1653e7485058",
+            "run_name": "bright-lion",
+            "flow_id": "d9d51436-8f9c-4c94-87d9-49da8b02cb17",
+            "state_name": "Completed",
+            "state_type": "StateType.COMPLETED",
+            "start_time": "2026-09-28 14:01:28.431060+00:00",
+            "end_time": "2026-09-28 14:01:30.278343+00:00",
+            "total_run_time_seconds": 1.847283
+          },
+          {
+            "run_id": "c2115b52-fb19-44ab-904e-fd4fd046cd70",
+            "run_name": "pretty-jackal",
+            "flow_id": "d9d51436-8f9c-4c94-87d9-49da8b02cb17",
+            "state_name": "Completed",
+            "state_type": "StateType.COMPLETED",
+            "start_time": "2026-09-28 13:56:34.694967+00:00",
+            "end_time": "2026-09-28 13:56:36.638704+00:00",
+            "total_run_time_seconds": 1.943737
+          },
+          {
+            "run_id": "73ec3a2c-57aa-42f8-8086-543d60250b79",
+            "run_name": "loutish-hog",
+            "flow_id": "d9d51436-8f9c-4c94-87d9-49da8b02cb17",
+            "state_name": "Completed",
+            "state_type": "StateType.COMPLETED",
+            "start_time": "2026-09-28 14:01:25.237123+00:00",
+            "end_time": "2026-09-28 14:01:27.359975+00:00",
+            "total_run_time_seconds": 2.122852
+          },
+          {
+            "run_id": "6717fd64-1463-4f56-adff-155e1172fd21",
+            "run_name": "natural-fennec",
+            "flow_id": "d9d51436-8f9c-4c94-87d9-49da8b02cb17",
+            "state_name": "Completed",
+            "state_type": "StateType.COMPLETED",
+            "start_time": "2026-09-28 13:59:08.078393+00:00",
+            "end_time": "2026-09-28 13:59:10.060794+00:00",
+            "total_run_time_seconds": 1.982401
+          },
+          {
+            "run_id": "19d4e66f-de60-4a78-a216-71ee6ba97cec",
+            "run_name": "crouching-eagle",
+            "flow_id": "d9d51436-8f9c-4c94-87d9-49da8b02cb17",
+            "state_name": "Completed",
+            "state_type": "StateType.COMPLETED",
+            "start_time": "2026-09-28 14:10:51.574377+00:00",
+            "end_time": "2026-09-28 14:10:53.645467+00:00",
+            "total_run_time_seconds": 2.07109
+          }
+        ]
+      }
+    },
+    {
+      "test_id": "TEST-06",
+      "name": "Pipeline Telemetry & Quality Metrics",
+      "method": "GET",
+      "endpoint": "/api/v1/pipeline/metrics",
+      "expected_status": 200,
+      "actual_status": 200,
+      "latency_ms": 1.1,
+      "result": "PASSED",
+      "response_sample": {
+        "execution_timestamp": "2026-09-28T14:10:53.637602+00:00",
+        "pipeline_name": "telco-customer-churn-dataops-pipeline",
+        "status": "SUCCESS",
+        "data_ingestion": {
+          "source": "IBM/Kaggle Telco Customer Churn",
+          "total_records": 7043
+        },
+        "preprocessing": {
+          "raw_record_count": 7043,
+          "processed_record_count": 7043,
+          "missing_values_detected": {},
+          "imputation_details": {
+            "column": "TotalCharges",
+            "missing_count": 11,
+            "strategy": "median",
+            "imputed_value": 1397.47
+          },
+          "summary_statistics": {
+            "tenure": {
+              "count": 7043,
+              "mean": 32.37114865824223,
+              "std": 24.55948102309446,
+              "min": 0.0,
+              "25%": 9.0,
+              "50% (median)": 29.0,
+              "75%": 55.0,
+              "max": 72.0,
+              "skewness": 0.2395397495619829
+            },
+            "MonthlyCharges": {
+              "count": 7043,
+              "mean": 64.76169246059918,
+              "std": 30.090047097678493,
+              "min": 18.25,
+              "25%": 35.5,
+              "50% (median)": 70.35,
+              "75%": 89.85,
+              "max": 118.75,
+              "skewness": -0.22052443394398033
+            },
+            "TotalCharges": {
+              "count": 7043,
+              "mean": 2281.9169281556156,
+              "std": 2265.270398482188,
+              "min": 18.8,
+              "25%": 402.225,
+              "50% (median)": 1397.475,
+              "75%": 3786.6,
+              "max": 8684.8,
+              "skewness": 0.9637890936414893
+            }
+          },
+          "normalized_columns": [
+            "tenure_norm",
+            "MonthlyCharges_norm",
+            "TotalCharges_norm"
+          ]
+        },
+        "eda_summary": {
+          "overall_churn_rate": 26.54,
+          "pearson_correlations": {
+            "tenure": {
+              "tenure": 1.0,
+              "MonthlyCharges": 0.2479,
+              "TotalCharges": 0.8255,
+              "Churn_binary": -0.3522
+            },
+            "MonthlyCharges": {
+              "tenure": 0.2479,
+              "MonthlyCharges": 1.0,
+              "TotalCharges": 0.6509,
+              "Churn_binary": 0.1934
+            },
+            "TotalCharges": {
+              "tenure": 0.8255,
+              "MonthlyCharges": 0.6509,
+              "TotalCharges": 1.0,
+              "Churn_binary": -0.199
+            },
+            "Churn_binary": {
+              "tenure": -0.3522,
+              "MonthlyCharges": 0.1934,
+              "TotalCharges": -0.199,
+              "Churn_binary": 1.0
+            }
+          },
+          "spearman_correlations": {
+            "tenure": {
+              "tenure": 1.0,
+              "MonthlyCharges": 0.2764,
+              "TotalCharges": 0.887,
+              "Churn_binary": -0.3671
+            },
+            "MonthlyCharges": {
+              "tenure": 0.2764,
+              "MonthlyCharges": 1.0,
+              "TotalCharges": 0.6375,
+              "Churn_binary": 0.1847
+            },
+            "TotalCharges": {
+              "tenure": 0.887,
+              "MonthlyCharges": 0.6375,
+              "TotalCharges": 1.0,
+              "Churn_binary": -0.2321
+            },
+            "Churn_binary": {
+              "tenure": -0.3671,
+              "MonthlyCharges": 0.1847,
+              "TotalCharges": -0.2321,
+              "Churn_binary": 1.0
+            }
+          },
+          "categorical_associations_cramers_v": {
+            "Contract": {
+              "chi2_stat": 1184.6,
+              "p_value": 5.863038300673393e-258,
+              "cramers_v": 0.4101,
+              "is_significant": true
+            },
+            "OnlineSecurity": {
+              "chi2_stat": 850.0,
+              "p_value": 2.661149635176552e-185,
+              "cramers_v": 0.3474,
+              "is_significant": true
+            },
+            "TechSupport": {
+              "chi2_stat": 828.2,
+              "p_value": 1.4430840279998987e-180,
+              "cramers_v": 0.3429,
+              "is_significant": true
+            },
+            "InternetService": {
+              "chi2_stat": 732.31,
+              "p_value": 9.571788222840544e-160,
+              "cramers_v": 0.3225,
+              "is_significant": true
+            },
+            "PaymentMethod": {
+              "chi2_stat": 648.14,
+              "p_value": 3.6823546520098007e-140,
+              "cramers_v": 0.3034,
+              "is_significant": true
+            },
+            "OnlineBackup": {
+              "chi2_stat": 601.81,
+              "p_value": 2.079759216086427e-131,
+              "cramers_v": 0.2923,
+              "is_significant": true
+            },
+            "DeviceProtection": {
+              "chi2_stat": 558.42,
+              "p_value": 5.505219496457244e-122,
+              "cramers_v": 0.2816,
+              "is_significant": true
+            },
+            "StreamingMovies": {
+              "chi2_stat": 375.66,
+              "p_value": 2.667756755723681e-82,
+              "cramers_v": 0.231,
+              "is_significant": true
+            },
+            "StreamingTV": {
+              "chi2_stat": 374.2,
+              "p_value": 5.528994485739183e-82,
+              "cramers_v": 0.2305,
+              "is_significant": true
+            },
+            "PaperlessBilling": {
+              "chi2_stat": 258.28,
+              "p_value": 4.0733546686659864e-58,
+              "cramers_v": 0.1915,
+              "is_significant": true
+            },
+            "Dependents": {
+              "chi2_stat": 189.13,
+              "p_value": 4.924921661215422e-43,
+              "cramers_v": 0.1639,
+              "is_significant": true
+            },
+            "SeniorCitizen": {
+              "chi2_stat": 159.43,
+              "p_value": 1.5100668050923772e-36,
+              "cramers_v": 0.1505,
+              "is_significant": true
+            },
+            "Partner": {
+              "chi2_stat": 158.73,
+              "p_value": 2.139911344075994e-36,
+              "cramers_v": 0.1501,
+              "is_significant": true
+            },
+            "MultipleLines": {
+              "chi2_stat": 11.33,
+              "p_value": 0.0034643829548773003,
+              "cramers_v": 0.0401,
+              "is_significant": true
+            },
+            "PhoneService": {
+              "chi2_stat": 0.92,
+              "p_value": 0.3387825358066928,
+              "cramers_v": 0.0114,
+              "is_significant": false
+            },
+            "gender": {
+              "chi2_stat": 0.48,
+              "p_value": 0.48657873605618596,
+              "cramers_v": 0.0083,
+              "is_significant": false
+            }
+          },
+          "tenure_cohort_churn": {
+            "0-12m (New)": {
+              "count": 2186,
+              "mean": 0.47438243366880145
+            },
+            "13-24m (1-2 Yr)": {
+              "count": 1024,
+              "mean": 0.287109375
+            },
+            "25-48m (2-4 Yr)": {
+              "count": 1594,
+              "mean": 0.2038895859473024
+            },
+            "49-72m (Loyal)": {
+              "count": 2239,
+              "mean": 0.09513175524787852
+            }
+          },
+          "charges_tier_churn": {
+            "Low (<$35)": {
+              "count": 1735,
+              "mean": 0.10893371757925072
+            },
+            "Medium ($35-$70)": {
+              "count": 1725,
+              "mean": 0.23942028985507247
+            },
+            "High (>$70)": {
+              "count": 3583,
+              "mean": 0.35361428970136755
+            }
+          },
+          "top_features": [
+            {
+              "Feature": "tenure",
+              "RF_Importance": 0.1157835836119947,
+              "Mutual_Info": 0.07766362746829913
+            },
+            {
+              "Feature": "tenure_norm",
+              "RF_Importance": 0.1101121319803322,
+              "Mutual_Info": 0.081129117116997
+            },
+            {
+              "Feature": "TotalCharges_norm",
+              "RF_Importance": 0.10646133476338515,
+              "Mutual_Info": 0.044418275762498904
+            },
+            {
+              "Feature": "TotalCharges",
+              "RF_Importance": 0.09549689683273882,
+              "Mutual_Info": 0.043147754485485024
+            },
+            {
+              "Feature": "MonthlyCharges_norm",
+              "RF_Importance": 0.08300557123308548,
+              "Mutual_Info": 0.05018336471936724
+            },
+            {
+              "Feature": "MonthlyCharges",
+              "RF_Importance": 0.08210376225455465,
+              "Mutual_Info": 0.04518872880856373
+            },
+            {
+              "Feature": "InternetService_Fiber optic",
+              "RF_Importance": 0.06543159379997306,
+              "Mutual_Info": 0.05112403552126121
+            },
+            {
+              "Feature": "PaymentMethod_Electronic check",
+              "RF_Importance": 0.04687947366569182,
+              "Mutual_Info": 0.0458459256471615
+            },
+            {
+              "Feature": "Contract_Two year",
+              "RF_Importance": 0.03923256501549156,
+              "Mutual_Info": 0.0693600407086521
+            },
+            {
+              "Feature": "Contract_One year",
+              "RF_Importance": 0.022269250279159537,
+              "Mutual_Info": 0.020340190195258012
+            }
+          ]
+        },
+        "model_performance": {
+          "model_type": "RandomForestClassifier",
+          "test_accuracy": 0.7935,
+          "roc_auc": 0.8245
+        },
+        "dataops_schedule": {
+          "interval_seconds": 120,
+          "cadence": "Every 2 minutes",
+          "cloud_dashboard": "Prefect Cloud / Prefect Server UI"
+        }
+      }
+    },
+    {
+      "test_id": "TEST-07",
+      "name": "Exploratory Data Analysis Correlations",
+      "method": "GET",
+      "endpoint": "/api/v1/eda/correlations",
+      "expected_status": 200,
+      "actual_status": 200,
+      "latency_ms": 1.0,
+      "result": "PASSED",
+      "response_sample": {
+        "pearson_correlations": {
+          "tenure": {
+            "tenure": 1.0,
+            "MonthlyCharges": 0.2479,
+            "TotalCharges": 0.8255,
+            "Churn_binary": -0.3522
+          },
+          "MonthlyCharges": {
+            "tenure": 0.2479,
+            "MonthlyCharges": 1.0,
+            "TotalCharges": 0.6509,
+            "Churn_binary": 0.1934
+          },
+          "TotalCharges": {
+            "tenure": 0.8255,
+            "MonthlyCharges": 0.6509,
+            "TotalCharges": 1.0,
+            "Churn_binary": -0.199
+          },
+          "Churn_binary": {
+            "tenure": -0.3522,
+            "MonthlyCharges": 0.1934,
+            "TotalCharges": -0.199,
+            "Churn_binary": 1.0
+          }
+        },
+        "spearman_correlations": {
+          "tenure": {
+            "tenure": 1.0,
+            "MonthlyCharges": 0.2764,
+            "TotalCharges": 0.887,
+            "Churn_binary": -0.3671
+          },
+          "MonthlyCharges": {
+            "tenure": 0.2764,
+            "MonthlyCharges": 1.0,
+            "TotalCharges": 0.6375,
+            "Churn_binary": 0.1847
+          },
+          "TotalCharges": {
+            "tenure": 0.887,
+            "MonthlyCharges": 0.6375,
+            "TotalCharges": 1.0,
+            "Churn_binary": -0.2321
+          },
+          "Churn_binary": {
+            "tenure": -0.3671,
+            "MonthlyCharges": 0.1847,
+            "TotalCharges": -0.2321,
+            "Churn_binary": 1.0
+          }
+        },
+        "categorical_associations_cramers_v": {
+          "Contract": {
+            "chi2_stat": 1184.6,
+            "p_value": 5.863038300673393e-258,
+            "cramers_v": 0.4101,
+            "is_significant": true
+          },
+          "OnlineSecurity": {
+            "chi2_stat": 850.0,
+            "p_value": 2.661149635176552e-185,
+            "cramers_v": 0.3474,
+            "is_significant": true
+          },
+          "TechSupport": {
+            "chi2_stat": 828.2,
+            "p_value": 1.4430840279998987e-180,
+            "cramers_v": 0.3429,
+            "is_significant": true
+          },
+          "InternetService": {
+            "chi2_stat": 732.31,
+            "p_value": 9.571788222840544e-160,
+            "cramers_v": 0.3225,
+            "is_significant": true
+          },
+          "PaymentMethod": {
+            "chi2_stat": 648.14,
+            "p_value": 3.6823546520098007e-140,
+            "cramers_v": 0.3034,
+            "is_significant": true
+          },
+          "OnlineBackup": {
+            "chi2_stat": 601.81,
+            "p_value": 2.079759216086427e-131,
+            "cramers_v": 0.2923,
+            "is_significant": true
+          },
+          "DeviceProtection": {
+            "chi2_stat": 558.42,
+            "p_value": 5.505219496457244e-122,
+            "cramers_v": 0.2816,
+            "is_significant": true
+          },
+          "StreamingMovies": {
+            "chi2_stat": 375.66,
+            "p_value": 2.667756755723681e-82,
+            "cramers_v": 0.231,
+            "is_significant": true
+          },
+          "StreamingTV": {
+            "chi2_stat": 374.2,
+            "p_value": 5.528994485739183e-82,
+            "cramers_v": 0.2305,
+            "is_significant": true
+          },
+          "PaperlessBilling": {
+            "chi2_stat": 258.28,
+            "p_value": 4.0733546686659864e-58,
+            "cramers_v": 0.1915,
+            "is_significant": true
+          },
+          "Dependents": {
+            "chi2_stat": 189.13,
+            "p_value": 4.924921661215422e-43,
+            "cramers_v": 0.1639,
+            "is_significant": true
+          },
+          "SeniorCitizen": {
+            "chi2_stat": 159.43,
+            "p_value": 1.5100668050923772e-36,
+            "cramers_v": 0.1505,
+            "is_significant": true
+          },
+          "Partner": {
+            "chi2_stat": 158.73,
+            "p_value": 2.139911344075994e-36,
+            "cramers_v": 0.1501,
+            "is_significant": true
+          },
+          "MultipleLines": {
+            "chi2_stat": 11.33,
+            "p_value": 0.0034643829548773003,
+            "cramers_v": 0.0401,
+            "is_significant": true
+          },
+          "PhoneService": {
+            "chi2_stat": 0.92,
+            "p_value": 0.3387825358066928,
+            "cramers_v": 0.0114,
+            "is_significant": false
+          },
+          "gender": {
+            "chi2_stat": 0.48,
+            "p_value": 0.48657873605618596,
+            "cramers_v": 0.0083,
+            "is_significant": false
+          }
+        },
+        "tenure_cohort_churn": {
+          "0-12m (New)": {
+            "count": 2186,
+            "mean": 0.47438243366880145
+          },
+          "13-24m (1-2 Yr)": {
+            "count": 1024,
+            "mean": 0.287109375
+          },
+          "25-48m (2-4 Yr)": {
+            "count": 1594,
+            "mean": 0.2038895859473024
+          },
+          "49-72m (Loyal)": {
+            "count": 2239,
+            "mean": 0.09513175524787852
+          }
+        }
+      }
+    },
+    {
+      "test_id": "TEST-08",
+      "name": "Machine Learning Feature Importance Rankings",
+      "method": "GET",
+      "endpoint": "/api/v1/eda/feature-importance",
+      "expected_status": 200,
+      "actual_status": 200,
+      "latency_ms": 2.85,
+      "result": "PASSED",
+      "response_sample": {
+        "top_features": [
+          {
+            "Feature": "tenure",
+            "RF_Importance": 0.1157835836119947,
+            "Mutual_Info": 0.07766362746829913
+          },
+          {
+            "Feature": "tenure_norm",
+            "RF_Importance": 0.1101121319803322,
+            "Mutual_Info": 0.081129117116997
+          },
+          {
+            "Feature": "TotalCharges_norm",
+            "RF_Importance": 0.10646133476338515,
+            "Mutual_Info": 0.044418275762498904
+          },
+          {
+            "Feature": "TotalCharges",
+            "RF_Importance": 0.09549689683273882,
+            "Mutual_Info": 0.043147754485485024
+          },
+          {
+            "Feature": "MonthlyCharges_norm",
+            "RF_Importance": 0.08300557123308548,
+            "Mutual_Info": 0.05018336471936724
+          },
+          {
+            "Feature": "MonthlyCharges",
+            "RF_Importance": 0.08210376225455465,
+            "Mutual_Info": 0.04518872880856373
+          },
+          {
+            "Feature": "InternetService_Fiber optic",
+            "RF_Importance": 0.06543159379997306,
+            "Mutual_Info": 0.05112403552126121
+          },
+          {
+            "Feature": "PaymentMethod_Electronic check",
+            "RF_Importance": 0.04687947366569182,
+            "Mutual_Info": 0.0458459256471615
+          },
+          {
+            "Feature": "Contract_Two year",
+            "RF_Importance": 0.03923256501549156,
+            "Mutual_Info": 0.0693600407086521
+          },
+          {
+            "Feature": "Contract_One year",
+            "RF_Importance": 0.022269250279159537,
+            "Mutual_Info": 0.020340190195258012
+          }
+        ]
+      }
+    },
+    {
+      "test_id": "TEST-09",
+      "name": "Real-time Customer Churn Prediction Inference",
+      "method": "POST",
+      "endpoint": "/api/v1/predict/churn",
+      "request_body": {
+        "tenure": 2,
+        "MonthlyCharges": 89.5,
+        "TotalCharges": 179.0,
+        "Contract": "Month-to-month",
+        "InternetService": "Fiber optic",
+        "PaymentMethod": "Electronic check",
+        "OnlineSecurity": "No",
+        "TechSupport": "No"
+      },
+      "expected_status": 200,
+      "actual_status": 200,
+      "latency_ms": 0.89,
+      "result": "PASSED",
+      "response_sample": {
+        "status_code": 200,
+        "churn_prediction": "Yes",
+        "churn_probability": 0.95,
+        "risk_level": "HIGH",
+        "retention_recommendation": "Offer 1-year contract discount and complementary TechSupport"
+      }
+    },
+    {
+      "test_id": "TEST-10",
+      "name": "Asynchronous On-Demand Pipeline Trigger",
+      "method": "POST",
+      "endpoint": "/api/v1/pipeline/trigger",
+      "expected_status": 202,
+      "actual_status": 202,
+      "latency_ms": 2032.37,
+      "result": "PASSED",
+      "response_sample": {
+        "status": "ACCEPTED",
+        "message": "DataOps pipeline run triggered asynchronously.",
+        "pipeline_name": "telco-customer-churn-dataops-pipeline",
+        "triggered_at": "2026-09-28T14:10:54.765473+00:00"
+      }
+    },
+    {
+      "test_id": "TEST-11",
+      "name": "Pydantic Schema Validation Failure Handling",
+      "method": "POST",
+      "endpoint": "/api/v1/predict/churn",
+      "request_body": {
+        "tenure": -5,
+        "MonthlyCharges": "invalid-string"
+      },
+      "expected_status": 422,
+      "actual_status": 422,
+      "latency_ms": 2.6,
+      "result": "PASSED",
+      "response_sample": {
+        "detail": [
+          {
+            "type": "greater_than_equal",
+            "loc": [
+              "body",
+              "tenure"
+            ],
+            "msg": "Input should be greater than or equal to 0",
+            "input": -5,
+            "ctx": {
+              "ge": 0
+            }
+          },
+          {
+            "type": "float_parsing",
+            "loc": [
+              "body",
+              "MonthlyCharges"
+            ],
+            "msg": "Input should be a valid number, unable to parse string as a number",
+            "input": "invalid-string"
+          },
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "TotalCharges"
+            ],
+            "msg": "Field required",
+            "input": {
+              "tenure": -5,
+              "MonthlyCharges": "invalid-string"
+            }
+          },
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "Contract"
+            ],
+            "msg": "Field required",
+            "input": {
+              "tenure": -5,
+              "MonthlyCharges": "invalid-string"
+            }
+          },
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "InternetService"
+            ],
+            "msg": "Field required",
+            "input": {
+              "tenure": -5,
+              "MonthlyCharges": "invalid-string"
+            }
+          },
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "PaymentMethod"
+            ],
+            "msg": "Field required",
+            "input": {
+              "tenure": -5,
+              "MonthlyCharges": "invalid-string"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "test_id": "TEST-12",
+      "name": "Resource Not Found Handling",
+      "method": "GET",
+      "endpoint": "/api/v1/resource/not-found",
+      "expected_status": 404,
+      "actual_status": 404,
+      "latency_ms": 1.49,
+      "result": "PASSED",
+      "response_sample": {
+        "detail": "The requested cloud resource or pipeline entity could not be found."
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "status_code": 200,
+  "churn_prediction": "Yes",
+  "churn_probability": 0.95,
+  "risk_level": "HIGH",
+  "retention_recommendation": "Offer 1-year contract discount and complementary TechSupport"
+}

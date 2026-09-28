@@ -1,0 +1,12 @@
+# Local Prefect SQLite runtime databases and ephemeral cache
+.prefect/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# macOS metadata
+.DS_Store
+
+# Temporary Microsoft Word lock files
+~$*.docx

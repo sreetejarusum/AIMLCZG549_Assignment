@@ -1,0 +1,307 @@
+{
+  "execution_timestamp": "2026-09-28T14:10:56.625266+00:00",
+  "pipeline_name": "telco-customer-churn-dataops-pipeline",
+  "status": "SUCCESS",
+  "data_ingestion": {
+    "source": "IBM/Kaggle Telco Customer Churn",
+    "total_records": 7043
+  },
+  "preprocessing": {
+    "raw_record_count": 7043,
+    "processed_record_count": 7043,
+    "missing_values_detected": {},
+    "imputation_details": {
+      "column": "TotalCharges",
+      "missing_count": 11,
+      "strategy": "median",
+      "imputed_value": 1397.47
+    },
+    "summary_statistics": {
+      "tenure": {
+        "count": 7043,
+        "mean": 32.37114865824223,
+        "std": 24.55948102309446,
+        "min": 0.0,
+        "25%": 9.0,
+        "50% (median)": 29.0,
+        "75%": 55.0,
+        "max": 72.0,
+        "skewness": 0.2395397495619829
+      },
+      "MonthlyCharges": {
+        "count": 7043,
+        "mean": 64.76169246059918,
+        "std": 30.090047097678493,
+        "min": 18.25,
+        "25%": 35.5,
+        "50% (median)": 70.35,
+        "75%": 89.85,
+        "max": 118.75,
+        "skewness": -0.22052443394398033
+      },
+      "TotalCharges": {
+        "count": 7043,
+        "mean": 2281.9169281556156,
+        "std": 2265.270398482188,
+        "min": 18.8,
+        "25%": 402.225,
+        "50% (median)": 1397.475,
+        "75%": 3786.6,
+        "max": 8684.8,
+        "skewness": 0.9637890936414893
+      }
+    },
+    "normalized_columns": [
+      "tenure_norm",
+      "MonthlyCharges_norm",
+      "TotalCharges_norm"
+    ]
+  },
+  "eda_summary": {
+    "overall_churn_rate": 26.54,
+    "pearson_correlations": {
+      "tenure": {
+        "tenure": 1.0,
+        "MonthlyCharges": 0.2479,
+        "TotalCharges": 0.8255,
+        "Churn_binary": -0.3522
+      },
+      "MonthlyCharges": {
+        "tenure": 0.2479,
+        "MonthlyCharges": 1.0,
+        "TotalCharges": 0.6509,
+        "Churn_binary": 0.1934
+      },
+      "TotalCharges": {
+        "tenure": 0.8255,
+        "MonthlyCharges": 0.6509,
+        "TotalCharges": 1.0,
+        "Churn_binary": -0.199
+      },
+      "Churn_binary": {
+        "tenure": -0.3522,
+        "MonthlyCharges": 0.1934,
+        "TotalCharges": -0.199,
+        "Churn_binary": 1.0
+      }
+    },
+    "spearman_correlations": {
+      "tenure": {
+        "tenure": 1.0,
+        "MonthlyCharges": 0.2764,
+        "TotalCharges": 0.887,
+        "Churn_binary": -0.3671
+      },
+      "MonthlyCharges": {
+        "tenure": 0.2764,
+        "MonthlyCharges": 1.0,
+        "TotalCharges": 0.6375,
+        "Churn_binary": 0.1847
+      },
+      "TotalCharges": {
+        "tenure": 0.887,
+        "MonthlyCharges": 0.6375,
+        "TotalCharges": 1.0,
+        "Churn_binary": -0.2321
+      },
+      "Churn_binary": {
+        "tenure": -0.3671,
+        "MonthlyCharges": 0.1847,
+        "TotalCharges": -0.2321,
+        "Churn_binary": 1.0
+      }
+    },
+    "categorical_associations_cramers_v": {
+      "Contract": {
+        "chi2_stat": 1184.6,
+        "p_value": 5.863038300673393e-258,
+        "cramers_v": 0.4101,
+        "is_significant": true
+      },
+      "OnlineSecurity": {
+        "chi2_stat": 850.0,
+        "p_value": 2.661149635176552e-185,
+        "cramers_v": 0.3474,
+        "is_significant": true
+      },
+      "TechSupport": {
+        "chi2_stat": 828.2,
+        "p_value": 1.4430840279998987e-180,
+        "cramers_v": 0.3429,
+        "is_significant": true
+      },
+      "InternetService": {
+        "chi2_stat": 732.31,
+        "p_value": 9.571788222840544e-160,
+        "cramers_v": 0.3225,
+        "is_significant": true
+      },
+      "PaymentMethod": {
+        "chi2_stat": 648.14,
+        "p_value": 3.6823546520098007e-140,
+        "cramers_v": 0.3034,
+        "is_significant": true
+      },
+      "OnlineBackup": {
+        "chi2_stat": 601.81,
+        "p_value": 2.079759216086427e-131,
+        "cramers_v": 0.2923,
+        "is_significant": true
+      },
+      "DeviceProtection": {
+        "chi2_stat": 558.42,
+        "p_value": 5.505219496457244e-122,
+        "cramers_v": 0.2816,
+        "is_significant": true
+      },
+      "StreamingMovies": {
+        "chi2_stat": 375.66,
+        "p_value": 2.667756755723681e-82,
+        "cramers_v": 0.231,
+        "is_significant": true
+      },
+      "StreamingTV": {
+        "chi2_stat": 374.2,
+        "p_value": 5.528994485739183e-82,
+        "cramers_v": 0.2305,
+        "is_significant": true
+      },
+      "PaperlessBilling": {
+        "chi2_stat": 258.28,
+        "p_value": 4.0733546686659864e-58,
+        "cramers_v": 0.1915,
+        "is_significant": true
+      },
+      "Dependents": {
+        "chi2_stat": 189.13,
+        "p_value": 4.924921661215422e-43,
+        "cramers_v": 0.1639,
+        "is_significant": true
+      },
+      "SeniorCitizen": {
+        "chi2_stat": 159.43,
+        "p_value": 1.5100668050923772e-36,
+        "cramers_v": 0.1505,
+        "is_significant": true
+      },
+      "Partner": {
+        "chi2_stat": 158.73,
+        "p_value": 2.139911344075994e-36,
+        "cramers_v": 0.1501,
+        "is_significant": true
+      },
+      "MultipleLines": {
+        "chi2_stat": 11.33,
+        "p_value": 0.0034643829548773003,
+        "cramers_v": 0.0401,
+        "is_significant": true
+      },
+      "PhoneService": {
+        "chi2_stat": 0.92,
+        "p_value": 0.3387825358066928,
+        "cramers_v": 0.0114,
+        "is_significant": false
+      },
+      "gender": {
+        "chi2_stat": 0.48,
+        "p_value": 0.48657873605618596,
+        "cramers_v": 0.0083,
+        "is_significant": false
+      }
+    },
+    "tenure_cohort_churn": {
+      "0-12m (New)": {
+        "count": 2186,
+        "mean": 0.47438243366880145
+      },
+      "13-24m (1-2 Yr)": {
+        "count": 1024,
+        "mean": 0.287109375
+      },
+      "25-48m (2-4 Yr)": {
+        "count": 1594,
+        "mean": 0.2038895859473024
+      },
+      "49-72m (Loyal)": {
+        "count": 2239,
+        "mean": 0.09513175524787852
+      }
+    },
+    "charges_tier_churn": {
+      "Low (<$35)": {
+        "count": 1735,
+        "mean": 0.10893371757925072
+      },
+      "Medium ($35-$70)": {
+        "count": 1725,
+        "mean": 0.23942028985507247
+      },
+      "High (>$70)": {
+        "count": 3583,
+        "mean": 0.35361428970136755
+      }
+    },
+    "top_features": [
+      {
+        "Feature": "tenure",
+        "RF_Importance": 0.1157835836119947,
+        "Mutual_Info": 0.07766362746829913
+      },
+      {
+        "Feature": "tenure_norm",
+        "RF_Importance": 0.1101121319803322,
+        "Mutual_Info": 0.081129117116997
+      },
+      {
+        "Feature": "TotalCharges_norm",
+        "RF_Importance": 0.10646133476338515,
+        "Mutual_Info": 0.044418275762498904
+      },
+      {
+        "Feature": "TotalCharges",
+        "RF_Importance": 0.09549689683273882,
+        "Mutual_Info": 0.043147754485485024
+      },
+      {
+        "Feature": "MonthlyCharges_norm",
+        "RF_Importance": 0.08300557123308548,
+        "Mutual_Info": 0.05018336471936724
+      },
+      {
+        "Feature": "MonthlyCharges",
+        "RF_Importance": 0.08210376225455465,
+        "Mutual_Info": 0.04518872880856373
+      },
+      {
+        "Feature": "InternetService_Fiber optic",
+        "RF_Importance": 0.06543159379997306,
+        "Mutual_Info": 0.05112403552126121
+      },
+      {
+        "Feature": "PaymentMethod_Electronic check",
+        "RF_Importance": 0.04687947366569182,
+        "Mutual_Info": 0.0458459256471615
+      },
+      {
+        "Feature": "Contract_Two year",
+        "RF_Importance": 0.03923256501549156,
+        "Mutual_Info": 0.0693600407086521
+      },
+      {
+        "Feature": "Contract_One year",
+        "RF_Importance": 0.022269250279159537,
+        "Mutual_Info": 0.020340190195258012
+      }
+    ]
+  },
+  "model_performance": {
+    "model_type": "RandomForestClassifier",
+    "test_accuracy": 0.7935,
+    "roc_auc": 0.8245
+  },
+  "dataops_schedule": {
+    "interval_seconds": 120,
+    "cadence": "Every 2 minutes",
+    "cloud_dashboard": "Prefect Cloud / Prefect Server UI"
+  }
+}

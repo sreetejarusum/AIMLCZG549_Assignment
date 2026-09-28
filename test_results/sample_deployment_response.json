@@ -1,0 +1,27 @@
+{
+  "total_deployments": 1,
+  "deployments": [
+    {
+      "deployment_id": "bc34f67b-4486-44ac-af96-87a4dd5dedda",
+      "deployment_name": "churn-dataops-2min-deployment",
+      "flow_id": "d9d51436-8f9c-4c94-87d9-49da8b02cb17",
+      "status": "READY",
+      "tags": [
+        "aimlczg549",
+        "assignment1",
+        "dataops"
+      ],
+      "schedules": [
+        {
+          "schedule_type": "Interval",
+          "interval_seconds": 120,
+          "cadence": "Every 2 minutes",
+          "active": true,
+          "raw": "interval=datetime.timedelta(seconds=120) anchor_date=datetime.datetime(2026, 9, 28, 13, 57, 30, 320189, tzinfo=TzInfo(0)) timezone='UTC'"
+        }
+      ],
+      "created_at": "2026-09-28 13:57:33.572088+00:00",
+      "updated_at": "2026-09-28 13:57:33.570798+00:00"
+    }
+  ]
+}
