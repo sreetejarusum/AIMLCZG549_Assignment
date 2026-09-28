@@ -10,3 +10,7 @@ __pycache__/
 
 # Temporary Microsoft Word lock files
 ~$*.docx
+
+# Duplicate video filenames (tracking group80_video_walkthrough.mp4)
+80_video_walkthrough.mp4
+AIMLCZG549_Assignment1_Video_Walkthrough.mp4
