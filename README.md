@@ -10,11 +10,7 @@
 
 | Student Name | Student ID | Specific Module & Contribution Description | Share % |
 | :--- | :--- | :--- | :---: |
-| **SREE TEJA R** | 2025AE05629 | Pipeline Architecture, Prefect DataOps Automation (1.5), Cloud-Native FastAPI Gateway (3.1–3.3) | 25% |
-| **Syed Tajuddin** | 2025AF05080 | Dataset Sourcing & Ingestion (1.2), Data Profiling, Missing Imputation, MinMax Normalization (1.3) | 25% |
-| **Megha** | 2025AF05045 | Exploratory Data Analysis, Pearson/Spearman Correlations, Cramér's V Tests, Binning (1.4) | 25% |
-| **Deepak Jain** | 2025AF05045 | Feature Importance Modeling (Gini/Mutual Info), API Client Testing Suite & Documentation (3.3) | 25% |
-
+| **SREE TEJA R** | 2025AE05629 | Pipeline Architecture, Prefect DataOps Automation (1.5), Cloud-Native FastAPI Gateway (3.1–3.3) | 100% |
 ---
 
 ## 2. Deliverables & Submission Files
